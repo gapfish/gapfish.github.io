@@ -1,0 +1,6 @@
+web:
+  image: httpd
+  ports:
+    - "3000:80"
+  volumes:
+    - .:/usr/local/apache2/htdocs/
