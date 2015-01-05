@@ -8,6 +8,9 @@ mediaType:  application/json
 #List of protocols to support for baseUri
 protocols: [ HTTPS ]
 
+schemas:
+  - installationPost: !include schemas/installationPost.json
+
 securitySchemes:
   - oauth_2_0:
       description: |
@@ -113,18 +116,16 @@ securedBy: [ oauth_2_0 ]
             }
 
 /installations:
-  get:
-    description: Get a list of installations for the current user
-    queryParameters:
-    responses:
-      200:
-        body:
-          schema:
-          #schema
-          #example: !include schema/product-list.json
-          #
   post:
     description: create a new installation
+    body:
+      schema: installationPost
+      #example: !include examples/installationPost.json
+    responses:
+      201:
+        body:
+          #schema: collectionPostResponse
+          #example: !include examples/collectionPostResponse.json
 
   put:
     description: update a given installation
