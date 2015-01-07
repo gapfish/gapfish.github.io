@@ -10,7 +10,8 @@ protocols: [ HTTPS ]
 
 schemas:
   - installationPost: !include schemas/installationPost.json
-  - userGet: !include schemas/userGet.json
+  - installationPostResponse: !include schemas/installationPostResponse.json
+  - userGetResponse: !include schemas/userGetResponse.json
 
 securitySchemes:
   - oauth_2_0:
@@ -39,27 +40,12 @@ securitySchemes:
       settings:
         authorizationUri: https://github.com/login/oauth/authorize
         accessTokenUri: https://github.com/login/oauth/access_token
-        authorizationGrants: [ code, token ]
+        authorizationGrants: [ code, token, credentials ]
         scopes:
           - "user"
-          - "user:email"
-          - "user:follow"
-          - "public_repo"
-          - "repo"
-          - "repo:status"
-          - "delete_repo"
-          - "notifications"
-          - "gist"
-securedBy: [ oauth_2_0 ]
+          - "installations"
 
-/user:
-  get:
-    description: Get the authenticated user.
-    responses:
-      200:
-        body:
-          schema: userGet
-          example: !include examples/userGetResponse.json
+securedBy: [ oauth_2_0 ]
 
 /installations:
   post:
@@ -73,3 +59,38 @@ securedBy: [ oauth_2_0 ]
           schema: installationPostResponse
           example: !include examples/installationPostResponse.json
 
+/login:
+  get:
+    description: |
+      Logs in a user to his or her account. Response provides a
+      'sessionToken' which is used to invoke methods with authorized access.
+    body:
+      application/x-www-form-urlencoded:
+        formParameters:
+          email:
+            required: true
+          password:
+            required: true
+    responses:
+      200:
+
+/media:
+  post:
+    description: create a new media upload
+    body:
+      schema: mediaPost
+      example: !include examples/mediaPost.json
+    responses:
+      201:
+        body:
+          schema: mediaPostResponse
+          example: !include examples/mediaPostResponse.json
+
+/user:
+  get:
+    description: get the authenticated user
+    responses:
+      200:
+        body:
+          schema: userGetResponse
+          example: !include examples/userGetResponse.json
