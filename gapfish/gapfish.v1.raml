@@ -35,15 +35,12 @@ securitySchemes:
               the "Authorization" header
             type: string
         responses:
-          404:
-            description: Unauthorized
+          403:
+            description: Forbidden - request was unauthorized
       settings:
-        authorizationUri: https://github.com/login/oauth/authorize
-        accessTokenUri: https://github.com/login/oauth/access_token
-        authorizationGrants: [ code, token, credentials ]
-        scopes:
-          - "user"
-          - "installations"
+        authorizationUri: https://api.gapfish.com/oauth/authorize
+        accessTokenUri: https://api.gapfish.com/oauth/access_token
+        authorizationGrants: [ owner ]
 
 securedBy: [ oauth_2_0 ]
 
@@ -59,20 +56,11 @@ securedBy: [ oauth_2_0 ]
           schema: installationPostResponse
           example: !include examples/installationPostResponse.json
 
-/login:
-  get:
-    description: |
-      Logs in a user to his or her account. Response provides a
-      'sessionToken' which is used to invoke methods with authorized access.
-    body:
-      application/x-www-form-urlencoded:
-        formParameters:
-          email:
-            required: true
-          password:
-            required: true
-    responses:
-      200:
+  /{objectId}:
+    put:
+      body:
+      responses:
+        20x: updated
 
 /media:
   post:
