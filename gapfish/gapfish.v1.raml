@@ -11,10 +11,12 @@ protocols: [ HTTPS ]
 schemas:
   - installationPost: !include schemas/installationPost.json
   - installationPostResponse: !include schemas/installationPostResponse.json
+  - installationPut: !include schemas/installationPut.json
+  - installationPutResponse: !include schemas/installationPutResponse.json
   - userGetResponse: !include schemas/userGetResponse.json
 
 securitySchemes:
-  - oauth_2_0:
+  - oauth2:
       description: |
         OAuth2 is a protocol that lets external apps request authorization to private
         details in a user's GitHub account without getting their password. This is
@@ -42,9 +44,27 @@ securitySchemes:
         accessTokenUri: https://api.gapfish.com/oauth/access_token
         authorizationGrants: [ owner ]
 
-securedBy: [ oauth_2_0 ]
+securedBy: [ oauth2 ]
+
+traits:
+  - resilient:
+      responses:
+        422:
+          description: |
+            unprocessable entity
+            the server cannot make sense of the request, please adhere to the specs
+        500:
+          description: |
+            server error
+            the server screwed up, the devs have been notified
+        502:
+          description: |
+            bad gateway
+            application servers are down or under heavy load, please retry, backing off exponentially
+
 
 /installations:
+  is: [ resilient ]
   post:
     description: create a new installation
     body:
@@ -58,11 +78,19 @@ securedBy: [ oauth_2_0 ]
 
   /{objectId}:
     put:
+      description: update an existing installation
       body:
+        schema: installationPut
+        example: !include examples/installationPut.json
       responses:
-        20x: updated
+        200:
+          description: updated
+          body:
+            schema: installationPutResponse
+            example: !include examples/installationPutResponse.json
 
 /media:
+  is: [ resilient ]
   post:
     description: create a new media upload
     body:
@@ -75,6 +103,7 @@ securedBy: [ oauth_2_0 ]
           example: !include examples/mediaPostResponse.json
 
 /user:
+  is: [ resilient ]
   get:
     description: get the authenticated user
     responses:
