@@ -6,5 +6,6 @@ before_install:
   - "gem install json_schema"
 
 script:
-  - validate_schema gapfish/schemas/installationPost.json gapfish/examples/installationPost.json
+  - validate-schema gapfish/schemas/installationPost.json gapfish/examples/installationPost.json
+  - jsonlint gapfish/schemas/installationPost.json
 

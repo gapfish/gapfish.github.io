@@ -1,0 +1,6 @@
+{
+    "dependencies": {
+        "jsonlint": "1.6.x",
+        "raml-cop": "1.0.x"
+    }
+}
