@@ -6,8 +6,7 @@
       "type": "object" ,
       "properties": {
         "id": {
-          "type": "string" ,
-          "required": true
+          "type": "string"
         } ,
         "first_name": {
           "type": "string"
@@ -30,7 +29,9 @@
             }
           }
         }
-      }
+      } ,
+      "required": [ "id" ]
     }
-  }
+  } ,
+  "required": [ "user" ]
 }

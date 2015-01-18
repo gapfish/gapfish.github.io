@@ -1,25 +1,23 @@
 {
-  "type" : "object" ,
   "$schema" : "http://json-schema.org/draft-04/schema#" ,
-  "required" : true ,
+  "type" : "object" ,
   "properties" : {
     "installations" : {
       "type": "object" ,
       "properties": {
         "deviceType" : {
           "type" : "string" ,
-          "enum": [ "ios", "android" ] ,
-          "required" : true
+          "enum": [ "ios", "android" ]
         } ,
         "androidRegistrationId" : {
-          "type" : "string" ,
-          "required" : false
+          "type" : "string"
         } ,
         "iosDeviceToken" : {
-          "type" : "string" ,
-          "required" : false
+          "type" : "string"
         }
-      }
+      } ,
+      "required": [ "deviceType" ]
     }
-  }
+  } ,
+  "required": [ "installations" ]
 }

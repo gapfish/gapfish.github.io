@@ -1,29 +1,26 @@
 {
   "$schema" : "http://json-schema.org/draft-04/schema#" ,
   "type" : "object" ,
-  "required" : true ,
   "properties" : {
     "installations": {
       "type": "object" ,
       "properties": {
         "id" : {
-          "type" : "string" ,
-          "required" : true
+          "type" : "string"
         } ,
         "deviceType" : {
           "type" : "string" ,
-          "enum": [ "ios", "android" ] ,
-          "required" : true
+          "enum": [ "ios", "android" ]
         } ,
         "installationId" : {
-          "type" : "string" ,
-          "required" : false
+          "type" : "string"
         } ,
         "deviceToken" : {
-          "type" : "string" ,
-          "required" : false
+          "type" : "string"
         }
-      }
+      } ,
+      "required": [ "id", "deviceType" ]
     }
-  }
+  } ,
+  "required" : [ "installations" ]
 }

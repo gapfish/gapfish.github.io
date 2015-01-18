@@ -1,20 +1,19 @@
 {
   "$schema" : "http://json-schema.org/draft-04/schema#" ,
   "type" : "object" ,
-  "required" : true ,
   "properties" : {
     "media": {
       "type": "object" ,
       "properties": {
         "id" : {
-          "type" : "string" ,
-          "required" : true
+          "type" : "string"
         } ,
         "project_id" : {
-          "type" : "string" ,
-          "required" : true
+          "type" : "string"
         }
-      }
+      } ,
+      "required": [ "id", "project_id" ]
     }
-  }
+  } ,
+  "required" : [ "media" ]
 }
