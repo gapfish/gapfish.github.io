@@ -1,4 +1,6 @@
 {
-	"createdAt" : "2013-12-19T17:21:15.147Z" ,
-	"objectId" : "4GW66cmAWP"
+  "installations": {
+    "objectId" : "4GW66cmAWP" ,
+    "createdAt" : "2013-12-19T17:21:15.147Z"
+  }
 }
