@@ -11,8 +11,6 @@ protocols: [ HTTPS ]
 schemas:
   - installationPost: !include schemas/installationPost.json
   - installationPostResponse: !include schemas/installationPostResponse.json
-  - installationPut: !include schemas/installationPut.json
-  - installationPutResponse: !include schemas/installationPutResponse.json
   - userGetResponse: !include schemas/userGetResponse.json
 
 securitySchemes:
@@ -40,8 +38,8 @@ securitySchemes:
           403:
             description: Forbidden - request was unauthorized
       settings:
-        authorizationUri: https://api.gapfish.com/oauth/authorize
-        accessTokenUri: https://api.gapfish.com/oauth/access_token
+        authorizationUri: https://api.gapfish.com/v1/oauth/authorize
+        accessTokenUri: https://api.gapfish.com/v1/oauth/access_token
         authorizationGrants: [ owner ]
 
 securedBy: [ oauth2 ]
@@ -51,15 +49,15 @@ traits:
       responses:
         422:
           description: |
-            unprocessable entity
+            unprocessable entity.
             the server cannot make sense of the request, please adhere to the specs
         500:
           description: |
-            server error
+            server error.
             the server screwed up, the devs have been notified
         502:
           description: |
-            bad gateway
+            bad gateway.
             application servers are down or under heavy load, please retry, backing off exponentially
 
 
@@ -75,19 +73,6 @@ traits:
         body:
           schema: installationPostResponse
           example: !include examples/installationPostResponse.json
-
-  /{objectId}:
-    put:
-      description: update an existing installation
-      body:
-        schema: installationPut
-        example: !include examples/installationPut.json
-      responses:
-        200:
-          description: updated
-          body:
-            schema: installationPutResponse
-            example: !include examples/installationPutResponse.json
 
 /media:
   is: [ resilient ]

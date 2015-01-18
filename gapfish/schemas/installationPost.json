@@ -11,11 +11,11 @@
           "enum": [ "ios", "android" ],
           "required" : true
         } ,
-        "installationId" : {
+        "androidRegistrationId" : {
           "type" : "string" ,
           "required" : false
         } ,
-        "deviceToken" : {
+        "iosDeviceToken" : {
           "type" : "string" ,
           "required" : false
         }

@@ -1,6 +1,7 @@
 {
   "installations": {
-    "objectId" : "4GW66cmAWP" ,
-    "createdAt" : "2013-12-19T17:21:15.147Z"
+    "id" : "54b94bd370d689193f0000c9" ,
+    "deviceType" : "ios" ,
+    "iosDeviceToken" : "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef" ,
   }
 }
