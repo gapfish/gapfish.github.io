@@ -1,23 +1,36 @@
 {
-    "$schema": "http://json-schema.org/draft-03/schema",
-    "type": "object",
-    "properties": {
+  "$schema": "http://json-schema.org/draft-04/schema#" ,
+  "type": "object" ,
+  "properties": {
+    "user": {
+      "type": "object" ,
+      "properties": {
         "id": {
-            "type": "string"
-        },
+          "type": "string" ,
+          "required": true
+        } ,
         "first_name": {
-            "type": "string"
-        },
+          "type": "string"
+        } ,
         "last_name": {
-            "type": "string"
-        },
+          "type": "string"
+        } ,
+        "locale": {
+          "type": "string"
+        } ,
+        "currency": {
+          "type": "string" ,
+          "enum": [ "EUR", "CHF" ]
+        } ,
         "stats": {
-            "properties": {
-                "balance": {
-                    "type": "float"
-                }
-            },
-            "type": "object"
+          "type": "object" ,
+          "properties": {
+            "balanceCents": {
+              "type": "integer"
+            }
+          }
         }
+      }
     }
+  }
 }

@@ -4,11 +4,11 @@
   "required" : true ,
   "properties" : {
     "installations" : {
-      "type": "object",
+      "type": "object" ,
       "properties": {
         "deviceType" : {
           "type" : "string" ,
-          "enum": [ "ios", "android" ],
+          "enum": [ "ios", "android" ] ,
           "required" : true
         } ,
         "androidRegistrationId" : {

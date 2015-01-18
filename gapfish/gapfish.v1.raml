@@ -11,6 +11,8 @@ protocols: [ HTTPS ]
 schemas:
   - installationPost: !include schemas/installationPost.json
   - installationPostResponse: !include schemas/installationPostResponse.json
+  - mediaPostResponse: !include schemas/mediaPostResponse.json
+  - userGet: !include schemas/userGet.json
   - userGetResponse: !include schemas/userGetResponse.json
 
 securitySchemes:
@@ -79,8 +81,17 @@ traits:
   post:
     description: create a new media upload
     body:
-      schema: mediaPost
-      example: !include examples/mediaPost.json
+      multipart/form-data:
+        formParameters:
+          file:
+            description: the file to be uploaded
+            required: true
+            type: file
+          project_id:
+            description: the project it is to be associated with
+            required: true
+            type: string
+            example: '54b94bd370d689193f0000c9'
     responses:
       201:
         body:
