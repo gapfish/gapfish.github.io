@@ -77,7 +77,9 @@ traits:
           example: !include examples/installationPostResponse.json
       409:
         description: |
-          Conflict. Probably the resource was already created
+          Conflict. Probably the resource was already created. You can
+          use this endpoint if you are not sure whether the installation
+          was already registered with us.
 
   /{installationId}:
     delete:
@@ -88,7 +90,8 @@ traits:
 
     /receipts:
       post:
-        description: create a receipt for a notification for a installation
+        description: |
+          create a receipt when the installation receives a notification
         body:
           schema: installationReceiptPost
           example: !include examples/installationReceiptPost.json
@@ -108,7 +111,7 @@ traits:
             required: true
             type: file
           participation_id:
-            description: the participation/user it is to be associated with
+            description: the participation/user identifier for the survey
             required: true
             type: string
             example: '54b94bd370d689193f0000c9'
