@@ -1,0 +1,19 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#" ,
+  "type" : "object" ,
+  "properties" : {
+    "installations" : {
+      "type": "object" ,
+      "properties": {
+        "id": {
+          "type": "string"
+        } ,
+        "receivedAt": {
+          "type": "string"
+        }
+      } ,
+      "required": [ "id" ]
+    }
+  } ,
+  "required": [ "installations" ]
+}
