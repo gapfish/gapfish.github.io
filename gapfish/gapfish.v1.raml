@@ -111,7 +111,10 @@ traits:
             required: true
             type: file
           participation_id:
-            description: the participation/user identifier for the survey
+            description: |
+              the GapFish-defined identifier for an individual participant of a study.
+              This is the shared parameter between GapFish and the Survey software and
+              is used for matching data across software borders.
             required: true
             type: string
             example: '54b94bd370d689193f0000c9'
