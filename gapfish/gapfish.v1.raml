@@ -11,6 +11,7 @@ protocols: [ HTTPS ]
 schemas:
   - installationPost: !include schemas/installationPost.json
   - installationPostResponse: !include schemas/installationPostResponse.json
+  - installationReceiptPost: !include schemas/installationReceiptPost.json
   - mediaPostResponse: !include schemas/mediaPostResponse.json
   - userGetResponse: !include schemas/userGetResponse.json
 
@@ -74,6 +75,29 @@ traits:
         body:
           schema: installationPostResponse
           example: !include examples/installationPostResponse.json
+      409:
+        description: |
+          Conflict. Probably the resource was already created. You can
+          use this endpoint if you are not sure whether the installation
+          was already registered with us.
+
+  /{installationId}:
+    delete:
+      description: delete an installation
+      responses:
+        204:
+          description: No Content
+
+    /receipts:
+      post:
+        description: |
+          create a receipt when the installation receives a notification
+        body:
+          schema: installationReceiptPost
+          example: !include examples/installationReceiptPost.json
+        responses:
+          201:
+            description: Created
 
 /media:
   is: [ resilient ]
@@ -86,11 +110,20 @@ traits:
             description: the file to be uploaded
             required: true
             type: file
-          project_id:
-            description: the project it is to be associated with
+          participation_id:
+            description: |
+              the GapFish-defined identifier for an individual participant of a study.
+              This is the shared parameter between GapFish and the Survey software and
+              is used for matching data across software borders.
             required: true
             type: string
             example: '54b94bd370d689193f0000c9'
+          question_id:
+            description: an optional question identifier for later analysis
+            required: false
+            type: string
+            pattern: /[a-z0-9]/
+            example: 'question1'
     responses:
       201:
         body:
