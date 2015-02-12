@@ -1,6 +1,7 @@
 {
   "installations": {
     "deviceType" : "ios" ,
-    "iosDeviceToken" : "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    "iosDeviceToken" : "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+    "mobileCarrier" : "o2-de"
   }
 }
