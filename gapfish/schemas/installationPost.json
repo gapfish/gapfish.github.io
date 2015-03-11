@@ -4,23 +4,40 @@
   "properties" : {
     "installations" : {
       "type": "object" ,
-      "properties": {
-        "deviceType" : {
-          "type" : "string" ,
-          "enum": [ "ios", "android" ]
-        } ,
-        "androidRegistrationId" : {
-          "type" : "string"
-        } ,
-        "iosDeviceToken" : {
-          "type" : "string"
+      "oneOf":
+      [
+        {
+          "properties": {
+            "deviceType" : {
+              "type" : "string" ,
+              "enum": [ "ios" ]
+            } ,
+            "iosDeviceToken" : {
+              "type" : "string"
+            },
+            "mobileCarrier" : {
+              "type" : "string"
+            }
+          } ,
+          "required": [ "deviceType", "iosDeviceToken" ]
         },
-        "mobileCarrier" : {
-          "type" : "string"
+        {
+          "properties": {
+            "deviceType" : {
+              "type" : "string" ,
+              "enum": [ "android" ]
+            } ,
+            "androidRegistrationId" : {
+              "type" : "string"
+            },
+            "mobileCarrier" : {
+              "type" : "string"
+            }
+          } ,
+          "required": [ "deviceType", "androidRegistrationId" ]
         }
-      } ,
-      "required": [ "deviceType" ]
-    }
-  } ,
-  "required": [ "installations" ]
+      ]
+    } ,
+    "required": [ "installations" ]
+  }
 }
