@@ -1,11 +1,16 @@
 {
   "$schema" : "http://json-schema.org/draft-04/schema#" ,
   "type": "object" ,
-  "oneOf": [
-  {
-    "properties" : {
-      "installations" : {
-        "type": "object" ,
+  "properties" : {
+    "installations" : { "$ref" : "#/definitions/installation" }
+  } ,
+
+  "definitions": {
+    "installation": {
+      "description": "An app installation" ,
+      "type": "object" ,
+      "oneOf": [
+      {
         "properties": {
           "deviceType" : {
             "type" : "string" ,
@@ -19,13 +24,8 @@
           }
         } ,
         "required": [ "deviceType", "iosDeviceToken" ]
-      }
-    }
-  },
-  {
-    "properties": {
-      "installations" : {
-        "type": "object" ,
+      } ,
+      {
         "properties": {
           "deviceType" : {
             "type" : "string" ,
@@ -39,8 +39,7 @@
           }
         } ,
         "required": [ "deviceType", "androidRegistrationId" ]
-      }
+      } ]
     }
   }
-  ]
 }
