@@ -1,20 +1,21 @@
 {
   "$schema" : "http://json-schema.org/draft-04/schema#" ,
-  "type": "object" ,
+  "type" : "object" ,
   "properties" : {
     "installations" : { "$ref" : "#/definitions/installation" }
   } ,
+  "required" : [ "installations" ] ,
 
-  "definitions": {
-    "installation": {
-      "description": "An app installation" ,
-      "type": "object" ,
-      "oneOf": [
+  "definitions" : {
+    "installation" : {
+      "description" : "An app installation" ,
+      "type" : "object" ,
+      "oneOf" : [
       {
-        "properties": {
+        "properties" : {
           "deviceType" : {
             "type" : "string" ,
-            "enum": [ "ios" ]
+            "enum" : [ "ios" ]
           } ,
           "iosDeviceToken" : {
             "type" : "string"
@@ -23,13 +24,13 @@
             "type" : "string"
           }
         } ,
-        "required": [ "deviceType", "iosDeviceToken" ]
+        "required" : [ "deviceType", "iosDeviceToken" ]
       } ,
       {
-        "properties": {
+        "properties" : {
           "deviceType" : {
             "type" : "string" ,
-            "enum": [ "android" ]
+            "enum" : [ "android" ]
           } ,
           "androidRegistrationId" : {
             "type" : "string"
@@ -38,7 +39,7 @@
             "type" : "string"
           }
         } ,
-        "required": [ "deviceType", "androidRegistrationId" ]
+        "required" : [ "deviceType", "androidRegistrationId" ]
       } ]
     }
   }
