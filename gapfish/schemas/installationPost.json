@@ -2,25 +2,45 @@
   "$schema" : "http://json-schema.org/draft-04/schema#" ,
   "type" : "object" ,
   "properties" : {
-    "installations" : {
-      "type": "object" ,
-      "properties": {
-        "deviceType" : {
-          "type" : "string" ,
-          "enum": [ "ios", "android" ]
-        } ,
-        "androidRegistrationId" : {
-          "type" : "string"
-        } ,
-        "iosDeviceToken" : {
-          "type" : "string"
-        },
-        "mobileCarrier" : {
-          "type" : "string"
-        }
-      } ,
-      "required": [ "deviceType" ]
-    }
+    "installations" : { "$ref" : "#/definitions/installation" }
   } ,
-  "required": [ "installations" ]
+  "required" : [ "installations" ] ,
+
+  "definitions" : {
+    "installation" : {
+      "description" : "An app installation" ,
+      "type" : "object" ,
+      "oneOf" : [
+      {
+        "properties" : {
+          "deviceType" : {
+            "type" : "string" ,
+            "enum" : [ "ios" ]
+          } ,
+          "iosDeviceToken" : {
+            "type" : "string"
+          },
+          "mobileCarrier" : {
+            "type" : "string"
+          }
+        } ,
+        "required" : [ "deviceType", "iosDeviceToken" ]
+      } ,
+      {
+        "properties" : {
+          "deviceType" : {
+            "type" : "string" ,
+            "enum" : [ "android" ]
+          } ,
+          "androidRegistrationId" : {
+            "type" : "string"
+          },
+          "mobileCarrier" : {
+            "type" : "string"
+          }
+        } ,
+        "required" : [ "deviceType", "androidRegistrationId" ]
+      } ]
+    }
+  }
 }
