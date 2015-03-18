@@ -1,7 +1,8 @@
 {
   "installations": {
-    "id" : "54b94bd370d689193f0000c9" ,
-    "deviceType" : "ios" ,
-    "iosDeviceToken" : "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    "id": "54b94bd370d689193f0000c9",
+    "deviceType": "android",
+    "androidRegistrationId": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+    "mobileCarrier": "vodafone-de"
   }
 }
