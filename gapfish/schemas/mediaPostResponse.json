@@ -8,14 +8,14 @@
         "id" : {
           "type" : "string"
         } ,
-        "participation_id" : {
+        "participationId" : {
           "type" : "string"
         } ,
-        "question_id" : {
+        "questionId" : {
           "type" : "string"
         }
       } ,
-      "required": [ "id", "participation_id" ]
+      "required": [ "id", "participationId" ]
     }
   } ,
   "required" : [ "medium" ]
