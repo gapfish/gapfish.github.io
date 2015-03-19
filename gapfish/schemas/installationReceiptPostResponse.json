@@ -1,10 +1,13 @@
 {
-  "$schema" : "http://json-schema.org/draft-04/schema#" ,
-  "type" : "object" ,
-  "properties" : {
-    "receipt" : {
+  "$schema": "http://json-schema.org/draft-04/schema#" ,
+  "type": "object" ,
+  "properties": {
+    "receipt": {
       "type": "object" ,
       "properties": {
+        "id": {
+          "type": "string"
+        } ,
         "notificationId": {
           "type": "string"
         } ,
@@ -12,7 +15,7 @@
           "type": "string"
         }
       } ,
-      "required": [ "notificationId" ]
+      "required": [ "id", "notificationId" ]
     }
   } ,
   "required": [ "receipt" ]
