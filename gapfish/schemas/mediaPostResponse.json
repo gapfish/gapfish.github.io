@@ -2,18 +2,21 @@
   "$schema" : "http://json-schema.org/draft-04/schema#" ,
   "type" : "object" ,
   "properties" : {
-    "media": {
+    "medium": {
       "type": "object" ,
       "properties": {
         "id" : {
           "type" : "string"
         } ,
-        "project_id" : {
+        "participationId" : {
+          "type" : "string"
+        } ,
+        "questionId" : {
           "type" : "string"
         }
       } ,
-      "required": [ "id", "project_id" ]
+      "required": [ "id", "participationId" ]
     }
   } ,
-  "required" : [ "media" ]
+  "required" : [ "medium" ]
 }
