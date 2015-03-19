@@ -2,25 +2,51 @@
   "$schema" : "http://json-schema.org/draft-04/schema#" ,
   "type" : "object" ,
   "properties" : {
-    "installations": {
-      "type": "object" ,
-      "properties": {
-        "id" : {
-          "type" : "string"
+    "installations": { "$ref" : "#/definitions/installation" }
+  } , 
+  "required" : [ "installations" ] ,
+
+  "definitions" : {
+    "installation" : {
+      "description" : "An app installation" ,
+      "type" : "object" ,
+      "oneOf" : [
+      {
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          } ,
+          "deviceType" : {
+            "type" : "string" ,
+            "enum" : [ "ios" ]
+          } ,
+          "iosDeviceToken" : {
+            "type" : "string"
+          },
+          "mobileCarrier" : {
+            "type" : "string"
+          }
         } ,
-        "deviceType" : {
-          "type" : "string" ,
-          "enum": [ "ios", "android" ]
-        } ,
-        "installationId" : {
-          "type" : "string"
-        } ,
-        "deviceToken" : {
-          "type" : "string"
-        }
+        "required" : [ "id", "deviceType", "iosDeviceToken" ]
       } ,
-      "required": [ "id", "deviceType" ]
+      {
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          } ,
+          "deviceType" : {
+            "type" : "string" ,
+            "enum" : [ "android" ]
+          } ,
+          "androidRegistrationId" : {
+            "type" : "string"
+          },
+          "mobileCarrier" : {
+            "type" : "string"
+          }
+        } ,
+        "required" : [ "id", "deviceType", "androidRegistrationId" ]
+      } ]
     }
-  } ,
-  "required" : [ "installations" ]
+  }
 }
