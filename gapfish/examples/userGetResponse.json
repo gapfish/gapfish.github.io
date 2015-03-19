@@ -1,8 +1,8 @@
 {
   "user": {
     "id" : "54b94bd370d689193f0000c9" ,
-    "first_name": "monalisa" ,
-    "last_name": "gapfish" ,
+    "firstName": "monalisa" ,
+    "lastName": "gapfish" ,
     "locale": "de-ip" ,
     "currency": "EUR" ,
     "stats": {
