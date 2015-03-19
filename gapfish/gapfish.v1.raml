@@ -12,6 +12,7 @@ schemas:
   - installationPost: !include schemas/installationPost.json
   - installationPostResponse: !include schemas/installationPostResponse.json
   - installationReceiptPost: !include schemas/installationReceiptPost.json
+  - installationReceiptPostResponse: !include schemas/installationReceiptPostResponse.json
   - mediaPostResponse: !include schemas/mediaPostResponse.json
   - userGetResponse: !include schemas/userGetResponse.json
 
@@ -98,6 +99,9 @@ traits:
         responses:
           201:
             description: Created
+            body:
+              schema: installationReceiptPostReponse
+              example: !include examples/installationReceiptPostResponse.json
 
 /media:
   is: [ resilient ]
