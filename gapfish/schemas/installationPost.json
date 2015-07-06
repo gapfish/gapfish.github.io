@@ -22,7 +22,14 @@
           },
           "mobileCarrier" : {
             "type" : "string"
-          }
+          },
+          "appVersion" : {
+            "type" : "string"
+          },
+          "appVersionCode" : {
+            "type" : "string"
+          },
+          "device" : { "$ref" : "#/definitions/iosDevice" }
         } ,
         "required" : [ "deviceType", "iosDeviceToken" ]
       } ,
@@ -37,10 +44,60 @@
           },
           "mobileCarrier" : {
             "type" : "string"
-          }
+          },
+          "appVersion" : {
+            "type" : "string"
+          },
+          "appVersionCode" : {
+            "type" : "string"
+          },
+          "device" : { "$ref" : "#/definitions/androidDevice" }
         } ,
         "required" : [ "deviceType", "androidRegistrationId" ]
       } ]
+    },
+    "androidDevice" : {
+      "description" : "An Android device",
+      "properties" : {
+        "manufacturer" : {
+          "type" : "string"
+        },
+        "model" : {
+          "type" : "string"
+        },
+        "product" : {
+          "type" : "string"
+        },
+        "sdk" : {
+          "type" : "string"
+        },
+        "systemLocale" : {
+          "type" : "string"
+        },
+        "androidAdvertisingId" : {
+          "type" : "string"
+        }
+      }
+    },
+    "iosDevice" : {
+      "description" : "An iOS device",
+      "properties" : {
+        "manufacturer" : {
+          "type" : "string"
+        },
+        "model" : {
+          "type" : "string"
+        },
+        "product" : {
+          "type" : "string"
+        },
+        "sdk" : {
+          "type" : "string"
+        },
+        "systemLocale" : {
+          "type" : "string"
+        }
+      }
     }
   }
 }

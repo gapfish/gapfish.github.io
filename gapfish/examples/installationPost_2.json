@@ -2,6 +2,15 @@
   "installations": {
     "deviceType" : "ios" ,
     "iosDeviceToken" : "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
-    "mobileCarrier" : "o2-de"
+    "mobileCarrier" : "o2-de",
+    "appVersion": "2.0.2",
+    "appVersionCode": "2.0.18",
+    "device": {
+      "manufacturer": "Apple",
+      "model": "iPhone7,2",
+      "product": "iPhone",
+      "sdk": "8.3",
+      "systemLocale": "de_DE"
+    }
   }
 }
