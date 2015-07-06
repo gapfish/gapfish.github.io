@@ -1,17 +1,15 @@
 {
   "installations": {
-    "deviceType" : "android" ,
+    "deviceType" : "android",
+    "deviceManufacturer": "motorola",
+    "deviceModel": "Nexus 6",
+    "deviceProduct": "shamu",
+    "deviceSdk": "22",
+    "deviceSystemLocale": "de_DE",
     "androidRegistrationId" : "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+    "androidAdvertisingId": "54c3d670-f7d9-49fe-9384-7578055b9f4e",
     "mobileCarrier" : "vodafone-de",
     "appVersion": "2.0.2",
-    "appVersionCode": "29",
-    "device": {
-      "manufacturer": "motorola",
-      "model": "Nexus 6",
-      "product": "shamu",
-      "sdk": "22",
-      "systemLocale": "de_DE",
-      "androidAdvertisingId": "54c3d670-f7d9-49fe-9384-7578055b9f4e"
-    }
+    "appVersionCode": "29"
   }
 }
