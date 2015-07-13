@@ -20,10 +20,31 @@
             "type" : "string" ,
             "enum" : [ "ios" ]
           } ,
+          "deviceManufacturer" : {
+            "type" : "string"
+          } ,
+          "deviceModel" : {
+            "type" : "string"
+          } ,
+          "deviceProduct" : {
+            "type" : "string"
+          } ,
+          "deviceSdk" : {
+            "type" : "string"
+          } ,
+          "deviceSystemLocale" : {
+            "type" : "string"
+          } ,
           "iosDeviceToken" : {
             "type" : "string"
-          },
+          } ,
           "mobileCarrier" : {
+            "type" : "string"
+          } ,
+          "appVersion" : {
+            "type" : "string"
+          } ,
+          "appVersionCode" : {
             "type" : "string"
           }
         } ,
@@ -38,10 +59,34 @@
             "type" : "string" ,
             "enum" : [ "android" ]
           } ,
+          "deviceManufacturer" : {
+            "type" : "string"
+          } ,
+          "deviceModel" : {
+            "type" : "string"
+          } ,
+          "deviceProduct" : {
+            "type" : "string"
+          } ,
+          "deviceSdk" : {
+            "type" : "string"
+          } ,
+          "deviceSystemLocale" : {
+            "type" : "string"
+          } ,
           "androidRegistrationId" : {
             "type" : "string"
-          },
+          } ,
+          "androidAdvertisingId" : {
+            "type" : "string"
+          } ,
           "mobileCarrier" : {
+            "type" : "string"
+          } ,
+          "appVersion" : {
+            "type" : "string"
+          } ,
+          "appVersionCode" : {
             "type" : "string"
           }
         } ,
