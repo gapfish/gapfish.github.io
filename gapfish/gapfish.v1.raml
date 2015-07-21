@@ -41,8 +41,8 @@ securitySchemes:
           403:
             description: Forbidden - request was unauthorized
       settings:
-        authorizationUri: https://api.gapfish.com/v1/oauth/authorize
-        accessTokenUri: https://api.gapfish.com/v1/oauth/access_token
+        authorizationUri: https://api.gapfish.com/v1/ipd/oauth/authorize
+        accessTokenUri: https://api.gapfish.com/v1/ipd/oauth/token
         authorizationGrants: [ owner ]
 
 securedBy: [ oauth2 ]
